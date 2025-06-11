@@ -1,0 +1,39 @@
+{
+  "name": "ai-prompt-marketplace-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for AI Prompt Marketplace built on Story Protocol",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test",
+    "test:verbose": "forge test -vvv",
+    "coverage": "forge coverage",
+    "deploy:testnet": "forge script script/Deploy.s.sol --rpc-url story_testnet --broadcast --verify",
+    "deploy:mainnet": "forge script script/Deploy.s.sol --rpc-url story_mainnet --broadcast --verify",
+    "install:deps": "yarn install && forge install",
+    "clean": "forge clean"
+  },
+  "dependencies": {
+    "@story-protocol/protocol-core": "github:storyprotocol/protocol-core-v1",
+    "@story-protocol/protocol-periphery": "github:storyprotocol/protocol-periphery-v1",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@openzeppelin/contracts-upgradeable": "^5.0.0",
+    "erc6551": "^0.3.1",
+    "solady": "^0.0.123"
+  },
+  "devDependencies": {
+    "ds-test": "github:dapphub/ds-test",
+    "forge-std": "github:foundry-rs/forge-std#v1.7.6"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart-contracts",
+    "story-protocol",
+    "ip-assets",
+    "nft",
+    "marketplace",
+    "ai-prompts"
+  ],
+  "author": "AI Prompt Marketplace Team",
+  "license": "MIT"
+}
