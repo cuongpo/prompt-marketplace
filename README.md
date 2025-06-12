@@ -1,286 +1,152 @@
-# AI Prompt Marketplace
+# 🚀 AI Prompt Marketplace
 
-A decentralized platform built on Story Protocol for tokenizing, buying, selling, and licensing AI prompts as digital assets on the blockchain.
+A decentralized marketplace built on Story Protocol for tokenizing, buying, selling, and licensing AI prompts as NFTs.
 
-## 🌟 Overview
+![License](https://img.shields.io/badge/license-MIT-blue) ![Platform](https://img.shields.io/badge/platform-Story%20Protocol-orange) ![Status](https://img.shields.io/badge/status-Beta-green)
 
-This platform enables creators to:
-- **Tokenize AI prompts** as IP Assets using Story Protocol's infrastructure
-- **Set licensing terms** and automated royalty structures
-- **Trade prompts** in a decentralized marketplace
-- **Earn revenue** from prompt usage and derivatives
-- **Build communities** around AI creativity
+## 💡 Overview
+
+The AI Prompt Marketplace enables creators to monetize their AI prompts through blockchain technology:
+
+- ✅ **Tokenize prompts** as IP Assets on Story Protocol
+- ✅ **Define licensing terms** with automated royalties
+- ✅ **Trade prompts** securely in a decentralized marketplace
+- ✅ **Track revenue** from prompt usage and derivatives
+- ✅ **Build community** around AI creativity
 
 ## 🏗️ Architecture
 
-### Smart Contracts (Foundry/Solidity)
-- **AIPromptRegistry.sol** - Registers prompts as IP Assets on Story Protocol
-- **PromptMarketplace.sol** - Handles buying/selling of prompt NFTs with multi-token support
-- **PromptLicensing.sol** - Manages licensing terms and automated revenue sharing
-- **Story Protocol Integration** - Leverages IP Asset Registry, Licensing Module, and Royalty Module
+| Component | Technology | Key Features |
+|-----------|------------|-------------|
+| **Smart Contracts** | Foundry/Solidity | AIPromptRegistry, PromptMarketplace, PromptLicensing |
+| **Frontend** | Next.js/React | Responsive UI, Wallet Integration, IPFS Storage |
+| **Backend** | Node.js/Express | RESTful API, Event Indexing, Analytics |
 
-### Frontend (Next.js + React)
-- **Modern Interface** - Responsive design with Tailwind CSS
-- **Story Protocol SDK** - Direct integration with Story Protocol
-- **Wallet Connectivity** - MetaMask, WalletConnect, and more via RainbowKit
-- **IPFS Integration** - Decentralized storage for prompt metadata
-- **Real-time Updates** - Live marketplace data and notifications
+## 🛠️ Tech Stack
 
-### Backend Services (Node.js + Express)
-- **RESTful API** - Comprehensive API for data management
-- **IPFS Pinning** - Reliable decentralized storage
-- **Event Indexing** - Blockchain event monitoring and indexing
-- **Analytics Engine** - Usage tracking and revenue analytics
-- **Caching Layer** - Redis for performance optimization
-
-## ✨ Key Features
-
-### 🎨 For Creators
-- **Easy Upload** - Intuitive prompt creation interface
-- **Flexible Licensing** - Custom terms with automated enforcement
-- **Revenue Tracking** - Real-time earnings and analytics
-- **IP Protection** - Blockchain-based ownership proof
-- **Community Building** - Creator profiles and following system
-
-### 🛒 For Users
-- **Advanced Search** - Filter by category, price, rating, and more
-- **Secure Purchases** - Multi-token payment support (ETH, ERC20)
-- **License Management** - Clear usage rights and restrictions
-- **Usage Tracking** - Monitor your prompt usage and licenses
-- **Rating System** - Community-driven quality assessment
-
-### 🔧 For Developers
-- **API Access** - RESTful API for integration
-- **SDK Support** - Easy integration tools
-- **Webhook Events** - Real-time notifications
-- **Analytics Data** - Usage and performance metrics
-- **Documentation** - Comprehensive guides and examples
-
-## 🛠️ Technology Stack
-
-### Blockchain & Smart Contracts
-- **Story Protocol** - IP management and licensing infrastructure
-- **Solidity** - Smart contract development
-- **Foundry** - Development framework and testing
-- **EVM Compatibility** - Works with Ethereum-compatible chains
-
-### Frontend
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Smooth animations
-- **Wagmi & Viem** - Ethereum interactions
-- **RainbowKit** - Wallet connection
-- **Zustand** - State management
-
-### Backend & Infrastructure
-- **Node.js & Express** - Server-side runtime
-- **PostgreSQL** - Primary database
-- **Redis** - Caching and sessions
-- **IPFS** - Decentralized storage
-- **Winston** - Logging
-- **Jest** - Testing framework
+- **Blockchain**: Story Protocol, Solidity, Foundry
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS, RainbowKit
+- **Backend**: Node.js, Express, PostgreSQL, Redis, IPFS
+- **DevOps**: GitHub Actions, Docker, AWS/Render
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Node.js** 18+
-- **Foundry** (for smart contracts)
-- **Git**
-- **PostgreSQL** (for backend)
+- Node.js 18+
+- Foundry
+- Git
+- PostgreSQL
 
-### Installation
+### One-Command Setup
 
-1. **Clone the repository:**
 ```bash
-git clone <repository-url>
-cd prompt_marketplace
+# Clone and install dependencies
+git clone <repository-url> && cd prompt_marketplace
+./deploy.sh development
 ```
 
-2. **Install dependencies:**
+### Manual Setup
+
+1. **Clone and install dependencies:**
 ```bash
-# Smart contracts
-cd contracts
-yarn install && forge install
+git clone <repository-url> && cd prompt_marketplace
 
-# Frontend
-cd ../frontend
-npm install
+# Install contract dependencies
+cd contracts && yarn install && forge install
 
-# Backend
-cd ../backend
-npm install
+# Install frontend dependencies
+cd ../frontend && npm install
+
+# Install backend dependencies
+cd ../backend && npm install
 ```
 
-3. **Environment setup:**
+2. **Configure environment:**
 ```bash
-# Copy environment files
+# Copy and edit environment files
 cp contracts/.env.example contracts/.env
 cp frontend/.env.example frontend/.env.local
 cp backend/.env.example backend/.env
-
-# Edit the files with your configuration
 ```
 
-4. **Deploy smart contracts:**
+3. **Launch development environment:**
 ```bash
-cd contracts
+# Start local blockchain
+cd contracts && anvil
 
-# Local deployment (for development)
-anvil # Start local blockchain
+# Deploy contracts (in new terminal)
+cd contracts
 forge script script/Deploy.s.sol --rpc-url http://localhost:8545 --broadcast
 
-# Or deploy to Story testnet
-forge script script/Deploy.s.sol --rpc-url $STORY_TESTNET_RPC --broadcast --verify
+# Start backend (in new terminal)
+cd backend && npm run dev
+
+# Start frontend (in new terminal)
+cd frontend && npm run dev
 ```
 
-5. **Start development servers:**
-```bash
-# Terminal 1: Backend
-cd backend
-npm run dev
-
-# Terminal 2: Frontend
-cd frontend
-npm run dev
-```
-
-6. **Access the application:**
+4. **Access your application:**
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:3001
-- Blockchain Explorer: https://testnet.storyscan.xyz
+
+## 📊 Key Features
+
+| For Creators | For Users | For Developers |
+|--------------|-----------|----------------|
+| Easy prompt tokenization | Advanced search & discovery | API access & SDK |
+| Custom licensing terms | Secure multi-token payments | Webhooks & events |
+| Revenue analytics | License management | Performance metrics |
+| IP protection | Usage tracking | Comprehensive docs |
+| Creator profiles | Community ratings | Integration guides |
 
 ## 📁 Project Structure
 
 ```
 prompt_marketplace/
-├── contracts/              # Smart contracts (Foundry)
-│   ├── src/               # Contract source code
-│   │   ├── AIPromptRegistry.sol
-│   │   ├── PromptMarketplace.sol
-│   │   └── PromptLicensing.sol
-│   ├── test/              # Contract tests
-│   ├── script/            # Deployment scripts
-│   └── foundry.toml       # Foundry configuration
+├── contracts/              # Smart contracts
 ├── frontend/              # Next.js frontend
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Next.js pages
-│   │   ├── lib/           # Utilities and configs
-│   │   └── styles/        # CSS styles
-│   └── package.json
 ├── backend/               # Node.js backend
-│   ├── src/
-│   │   ├── routes/        # API routes
-│   │   ├── middleware/    # Express middleware
-│   │   ├── services/      # Business logic
-│   │   └── utils/         # Utilities
-│   └── package.json
 ├── docs/                  # Documentation
-│   ├── ARCHITECTURE.md    # System architecture
-│   ├── SETUP.md          # Setup guide
-│   └── API.md            # API documentation
-└── README.md
+└── deploy.sh              # Deployment scripts
 ```
 
 ## 🧪 Testing
 
-### Smart Contracts
 ```bash
-cd contracts
-forge test                 # Run all tests
-forge test -vvv           # Verbose output
-forge coverage            # Coverage report
-```
+# Test smart contracts
+cd contracts && forge test
 
-### Frontend
-```bash
-cd frontend
-npm test                  # Run tests
-npm run test:watch        # Watch mode
-npm run build             # Production build
-```
+# Test frontend
+cd frontend && npm test
 
-### Backend
-```bash
-cd backend
-npm test                  # Run tests
-npm run test:watch        # Watch mode
-npm run lint              # Linting
+# Test backend
+cd backend && npm test
 ```
 
 ## 📚 Documentation
 
-- **[Setup Guide](docs/SETUP.md)** - Detailed setup instructions
-- **[Architecture](docs/ARCHITECTURE.md)** - System architecture overview
-- **[API Documentation](docs/API.md)** - Backend API reference
-- **[Smart Contracts](docs/CONTRACTS.md)** - Contract documentation
-- **[Deployment](docs/DEPLOYMENT.md)** - Production deployment guide
+- [Setup Guide](docs/SETUP.md)
+- [Architecture Overview](docs/ARCHITECTURE.md)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
+## 📅 Roadmap
 
-### Development Guidelines
-- Follow TypeScript/Solidity best practices
-- Write comprehensive tests
-- Update documentation
-- Use conventional commits
+- **Q2 2024**: Enhanced search, user profiles, mobile design
+- **Q3 2024**: AI recommendations, analytics dashboard, API marketplace
+- **Q4 2024**: Governance token, DAO implementation, cross-chain support
 
-## 📄 License
+## 🆘 Support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🗺️ Roadmap
-
-### ✅ Phase 1: Foundation (Current)
-- [x] Project architecture and setup
-- [x] Smart contract development
-- [x] Basic frontend interface
-- [x] Story Protocol integration
-- [x] Core marketplace functionality
-
-### 🚧 Phase 2: Enhanced Features (Q1 2024)
-- [ ] Advanced search and filtering
-- [ ] User profiles and social features
-- [ ] Mobile-responsive design
-- [ ] Performance optimizations
-- [ ] Security audits
-
-### 🔮 Phase 3: Advanced Platform (Q2 2024)
-- [ ] AI-powered recommendations
-- [ ] Collaborative prompt creation
-- [ ] Advanced analytics dashboard
-- [ ] API marketplace
-- [ ] Mobile applications
-
-### 🌟 Phase 4: Ecosystem (Q3 2024)
-- [ ] Governance token launch
-- [ ] DAO implementation
-- [ ] Cross-chain compatibility
-- [ ] Enterprise features
-- [ ] White-label solutions
-
-## 🆘 Support & Community
-
-- **Documentation**: [docs/](docs/)
-- **Discord**: [Join our community](https://discord.gg/storybuilders)
-- **GitHub Issues**: [Report bugs or request features](https://github.com/your-org/prompt-marketplace/issues)
-- **Twitter**: [@PromptMarketplace](https://twitter.com/promptmarketplace)
-- **Email**: support@promptmarketplace.io
-
-## 🙏 Acknowledgments
-
-- **Story Protocol** - For the amazing IP infrastructure
-- **Foundry** - For the excellent smart contract development tools
-- **Next.js** - For the powerful React framework
-- **The Community** - For feedback and contributions
+- **Docs**: [docs/](docs/)
+- **Discord**: [Join community](https://discord.gg/storybuilders)
+- **Issues**: [GitHub Issues](https://github.com/your-org/prompt-marketplace/issues)
 
 ---
 
